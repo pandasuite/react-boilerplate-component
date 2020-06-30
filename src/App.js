@@ -18,9 +18,6 @@ function App() {
       but we can also retrieve its parameters. */
     triggeredMarker,
   } = usePandaBridge(
-    /* Default for properties, markers, resources and triggeredMarker. */
-    {
-    },
     /* Hooks */
     {
       markers: {
