@@ -3,6 +3,7 @@ import './App.css';
 import _ from 'lodash';
 
 import PandaBridgeComponent, { usePandaBridge } from 'pandasuite-bridge-react';
+import { Button } from 'pandasuite-bridge-react/lib/ui';
 
 function App() {
   const {
@@ -54,7 +55,7 @@ function App() {
       >
         {({
           properties, markers, resources, triggeredMarker,
-        }) => (<></>)}
+        }) => (<Button>{properties && properties.searchTerm}</Button>)}
       </PandaBridgeComponent>
     </div>
   );
