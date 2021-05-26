@@ -1,11 +1,12 @@
 import React from 'react';
-import './App.css';
-import _ from 'lodash';
+import { useIntl } from 'react-intl';
+import uniqueId from 'lodash/uniqueId';
 
 import PandaBridgeComponent, { usePandaBridge } from 'pandasuite-bridge-react';
 import { Button } from 'pandasuite-bridge-react/lib/ui';
 
 function App() {
+  const intl = useIntl();
   const {
     /* We retrieve the properties defined in the pandasuite.json file */
     properties,
@@ -24,7 +25,7 @@ function App() {
       markers: {
         /* This method is auto-generated
           it's called up by clicking on "Add Marker" from the studio. */
-        getSnapshotDataHook: () => ({ id: _.uniqueId() }),
+        getSnapshotDataHook: () => ({ id: uniqueId() }),
       },
       actions: {},
       synchronization: {},
@@ -47,17 +48,19 @@ function App() {
   /* Or you can use, instead of hooks, directly the component
     that will work on the same principle. */
   return (
-    <div className="App">
-      <PandaBridgeComponent
-        markers={{}}
-        actions={{}}
-        synchronization={{}}
-      >
-        {({
-          properties, markers, resources, triggeredMarker,
-        }) => (<Button>{properties && properties.searchTerm}</Button>)}
-      </PandaBridgeComponent>
-    </div>
+    <PandaBridgeComponent
+      markers={{}}
+      actions={{}}
+      synchronization={{}}
+    >
+      {({
+        properties, markers, resources, triggeredMarker,
+      }) => (
+        <Button>
+          {intl.formatMessage({ id: 'request.button.title' })}
+        </Button>
+      )}
+    </PandaBridgeComponent>
   );
 }
 

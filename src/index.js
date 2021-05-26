@@ -8,7 +8,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<PandaBridgeRoot><App /></PandaBridgeRoot>, document.getElementById('root'));
+import IntlProvider from './components/IntlProvider';
+
+ReactDOM.render(<PandaBridgeRoot><IntlProvider><App /></IntlProvider></PandaBridgeRoot>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
