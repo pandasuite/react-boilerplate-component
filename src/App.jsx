@@ -1,9 +1,9 @@
-import React from 'react';
-import { useIntl } from 'react-intl';
-import uniqueId from 'lodash/uniqueId';
+import React from "react";
+import { useIntl } from "react-intl";
+import uniqueId from "lodash/uniqueId";
 
-import PandaBridgeComponent, { usePandaBridge } from 'pandasuite-bridge-react';
-import { Button } from 'pandasuite-bridge-react/lib/ui';
+import PandaBridgeComponent, { usePandaBridge } from "pandasuite-bridge-react";
+import { Button } from "pandasuite-bridge-react/lib/ui";
 
 function App() {
   const intl = useIntl();
@@ -48,17 +48,9 @@ function App() {
   /* Or you can use, instead of hooks, directly the component
     that will work on the same principle. */
   return (
-    <PandaBridgeComponent
-      markers={{}}
-      actions={{}}
-      synchronization={{}}
-    >
-      {({
-        properties, markers, resources, triggeredMarker,
-      }) => (
-        <Button>
-          {intl.formatMessage({ id: 'request.button.title' })}
-        </Button>
+    <PandaBridgeComponent markers={{}} actions={{}} synchronization={{}}>
+      {({ properties, markers, resources, triggeredMarker }) => (
+        <Button>{intl.formatMessage({ id: "request.button.title" })}</Button>
       )}
     </PandaBridgeComponent>
   );

@@ -4,30 +4,36 @@
   "homepage": "./",
   "private": true,
   "dependencies": {
-    "@craco/craco": "5",
-    "@tailwindcss/forms": "^0.3.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@tailwindcss/forms": "^0.5.9",
+    "@vitejs/plugin-react": "^4.3.3",
     "lodash": "^4.17.21",
-    "pandasuite-bridge": "^4.5.0",
-    "pandasuite-bridge-react": "^2.6.0",
+    "pandasuite-bridge": "^4.6.0",
+    "pandasuite-bridge-react": "^2.7.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-app-polyfill": "^1.0.6",
-    "react-dom": "^17.0.2",
-    "react-intl": "^5.18.1",
-    "react-scripts": "3.4.0"
+    "react": "^18.3.1",
+    "react-app-polyfill": "^3.0.0",
+    "react-dom": "^18.3.1",
+    "react-intl": "^6.8.1",
+    "vite": "^5.4.10"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "rm -f ./pandasuite-component.zip && craco build && cd build && zip -r -X '../pandasuite-component.zip' *",
-    "test": "craco test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "build": "vite build && rm -f ./pandasuite-component.zip && cd dist && zip -r -X '../pandasuite-component.zip' *",
+    "preview": "vite preview",
     "release": "yarn build && release-it --no-npm.publish"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:react/recommended",
+      "prettier"
+    ],
+    "plugins": [
+      "react-hooks"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    }
   },
   "browserslist": {
     "production": [
@@ -45,16 +51,17 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^9",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "postcss": "^7",
-    "release-it": "^13.0.1",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "postcss": "^8.4.47",
+    "prettier": "^3.0.0",
+    "release-it": "^17.10.0",
+    "tailwindcss": "^3.4.14"
   },
   "release-it": {
     "github": {
