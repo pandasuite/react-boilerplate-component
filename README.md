@@ -66,3 +66,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Component Archive
+
+`yarn build` creates `react-boilerplate-component-v<version>.zip` using the version in `package.json`.
+
+When reusing this boilerplate, replace `react-boilerplate-component` with the new repository name in the build script, the `release-it.github.assets` glob, and the `.gitignore` archive entry.
